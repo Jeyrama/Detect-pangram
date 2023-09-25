@@ -20,5 +20,18 @@ function isPangram(string) {
 // or
 
 function isPangram(string) {
-  return new Set(string.toLocaleLowerCase().replace(/[^a-z]/gi, '').split('')).size === 26;
+  return (string.match(/([a-z])(?!.*\1)/ig) || []).length === 26;
+}
+
+// or
+
+function isPangram(str) {
+  let s = str.toLowerCase();
+  let letters = "zqxjkvbpygfwmucldrhsnioate";
+  for (let i = 0; i < 26; i++) {
+    if (s.indexOf(letters.charAt(i)) == -1) {
+      return false;
+    }
+  }
+  return true;
 }
