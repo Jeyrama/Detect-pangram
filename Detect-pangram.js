@@ -16,3 +16,9 @@ function isPangram(string) {
     return string.indexOf(x) !== -1;
   });
 }
+
+// or
+
+function isPangram(string) {
+  return new Set(string.toLocaleLowerCase().replace(/[^a-z]/gi, '').split('')).size === 26;
+}
